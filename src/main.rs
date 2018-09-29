@@ -2,6 +2,7 @@ extern crate json;
 extern crate reqwest;
 
 use std::env;
+use std::process;
 
 fn underline(word: &String) -> String {
     let mut underline = vec![];
@@ -35,12 +36,18 @@ fn lookup(word: &String) -> json::JsonValue {
 
     let app_id = match env::var("DICTIONARY_APP_ID") {
         Ok(var) => var,
-        Err(_) => panic!("You must set DICTIONARY_APP_ID"),
+        Err(_) => {
+            eprintln!("You must set DICTIONARY_APP_ID");
+            process::exit(1);
+        },
     };
 
     let app_key = match env::var("DICTIONARY_APP_KEY") {
         Ok(var) => var,
-        Err(_) => panic!("You must set DICTIONARY_APP_KEY")
+        Err(_) => {
+            eprintln!("You must set DICTIONARY_APP_KEY");
+            process::exit(1);
+        }
     };
 
     let response = client.get(url)
@@ -56,8 +63,8 @@ fn main() {
     let word = match env::args().nth(1) {
         Some(word) => word,
         None => {
-            println!("Usage: dictionary <word>");
-            return;
+            eprintln!("Usage: dictionary <word>");
+            process::exit(1);
         }
     };
     let parsed = lookup(&word);
