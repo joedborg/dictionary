@@ -1,0 +1,8 @@
+[package]
+name = "dictionary"
+version = "0.1.0"
+authors = ["Joe Borg <joe@josephb.org>"]
+
+[dependencies]
+json = "0.11.13"
+reqwest = "0.9.2"
