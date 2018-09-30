@@ -1,8 +1,19 @@
 [package]
 name = "dictionary"
+description = "A CLI to lookup words, written in Rust"
 version = "0.1.0"
 authors = ["Joe Borg <joe@josephb.org>"]
+repository = "https://github.com/joedborg/dictionary"
+readme = "README.md"
+homepage = "https://josephb.org"
+license = "GPL-2.0"
 
 [dependencies]
 json = "0.11.13"
 reqwest = "0.9.2"
+
+[profile.release]
+opt-level = 3
+
+[badges]
+travis-ci = { repository = "joedborg/dictionary", branch = "master" }
