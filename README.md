@@ -6,7 +6,7 @@ You'll need an account at [https://developer.oxforddictionaries.com](https://dev
 
 ## Installation
 
-`cargo build`
+`cargo install dictionary`
 
 ## Running
 
@@ -14,4 +14,4 @@ You'll need an account at [https://developer.oxforddictionaries.com](https://dev
 
 `export DICTIONARY_APP_KEY={Your Key}`
 
-`./dictionary {word}`
+`dictionary {word}`
